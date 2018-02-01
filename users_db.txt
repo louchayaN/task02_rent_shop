@@ -1,0 +1,2 @@
+id=1, name=petrov, passport=MR5564574, rented_units_id=[1 3 ]
+id=2, name=ivanov, passport=MR3364504, rented_units_id=[2 3 ]
