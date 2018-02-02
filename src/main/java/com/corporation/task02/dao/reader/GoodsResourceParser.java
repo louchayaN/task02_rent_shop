@@ -1,4 +1,4 @@
-package com.corporation.task02.dao.parser;
+package com.corporation.task02.dao.reader;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

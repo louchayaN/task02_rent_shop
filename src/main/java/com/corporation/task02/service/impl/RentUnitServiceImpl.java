@@ -35,9 +35,15 @@ public class RentUnitServiceImpl implements RentUnitService {
 
 	@Override
 	public void rent(User user, SportEquipment sportEquipment) {
-		RentAbilityValidator.validate(user, sportEquipment);
-		rentUnitDao.rent(user,sportEquipment);
 		
+		RentAbilityValidator.validate(user, sportEquipment);
+		rentUnitDao.rent(user,sportEquipment);	
+	}
+
+	@Override
+	public void returnRentUnit(User user, SportEquipment sportEquipment) {
+		
+		rentUnitDao.returnRentUnit(user,sportEquipment);	
 	}
 	
 }

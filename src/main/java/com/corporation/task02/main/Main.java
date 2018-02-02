@@ -25,6 +25,9 @@ public class Main {
 			Shop shop = Shop.getInstance();
 			Map<Integer, User> users = shop.getUsers();
 			
+			Printer.printEquipments();
+			Printer.printRentEquipments();
+			
 			User user = users.get(1);
 			Criteria searchCriterias = new Criteria();
 			searchCriterias.add(SearchCriteria.CATEGORY, "SKI");
@@ -37,19 +40,17 @@ public class Main {
 				rentUnitService.rent(user, equipments.get(0));
 			}
 			
-			Printer.print();
+			Printer.printEquipments();
+			Printer.printRentEquipments();
+			
+			rentUnitService.returnRentUnit(user, equipments.get(0));
+			
+			Printer.printEquipments();
+			Printer.printRentEquipments();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		
-		
-		
-		
-		// 
-		// RentUnit rentUnits = userService.findRentUnits(user1);
-		// PrintRentUnit.print(rentUnits);
 
 	}
 

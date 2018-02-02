@@ -15,4 +15,6 @@ public interface RentUnitDAO {
 
 	void rent(User user, SportEquipment sportEquipment);
 
+	void returnRentUnit(User user, SportEquipment sportEquipment);
+
 }
