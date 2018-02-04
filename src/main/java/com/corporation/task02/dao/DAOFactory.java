@@ -7,6 +7,7 @@ public class DAOFactory {
 	private static final DAOFactory instance = new DAOFactory();
 	private final RentUnitDAO rentUnitsDao = new RentUnitDAOImpl();
 
+
 	public static DAOFactory getInstance() {
 		return instance;
 	}
