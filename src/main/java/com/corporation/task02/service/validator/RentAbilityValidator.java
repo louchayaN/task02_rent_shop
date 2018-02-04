@@ -9,7 +9,7 @@ public class RentAbilityValidator {
 
 	public static void validate(User user, SportEquipment sportEquipment) {
 		
-		List<SportEquipment> rentUnits = user.getRentUnits().getRentUnits();
+		List<SportEquipment> rentUnits = user.getRentUnits().getRentEquipments();
 		if(rentUnits.size() == 3) {
 			throw new RuntimeException("You can't rent more than three options!");
 		}

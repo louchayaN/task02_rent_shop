@@ -27,6 +27,7 @@ public class RentUnitServiceImpl implements RentUnitService {
 	public List<SportEquipment> find(Criteria searchCriterias) {
 		
 		Map<String, String> validationErrors = CriteriaValidator.validate(searchCriterias);
+		
 		if (!validationErrors.isEmpty()) {
 			throw new IllegalArgumentException(validationErrors.toString());
 		}		

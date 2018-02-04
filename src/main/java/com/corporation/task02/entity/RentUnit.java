@@ -5,34 +5,45 @@ import java.util.List;
 
 public class RentUnit {
 
-	private List<SportEquipment> rentUnits = new ArrayList<>();
+	private List<SportEquipment> rentEquipments = new ArrayList<>();
 
-	public List<SportEquipment> getRentUnits() {
-		return rentUnits;
+	public List<SportEquipment> getRentEquipments() {
+		return rentEquipments;
 	}
 
-	public void addRentUnit(SportEquipment sportEquipment) {
-		rentUnits.add(sportEquipment);
+	public void addRentEquipment(SportEquipment sportEquipment) {
+		rentEquipments.add(sportEquipment);
 	}
 
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((rentEquipments == null) ? 0 : rentEquipments.hashCode());
+		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RentUnit other = (RentUnit) obj;
+		if (rentEquipments == null) {
+			if (other.rentEquipments != null)
+				return false;
+		} else if (!rentEquipments.equals(other.rentEquipments))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "RentUnit [rentUnits=" + rentEquipments + "]";
 	}
 
-	
-	
+
 }

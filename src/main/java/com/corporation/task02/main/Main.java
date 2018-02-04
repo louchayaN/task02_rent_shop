@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import com.corporation.task02.entity.Shop;
+import com.corporation.task02.dto.Shop;
 import com.corporation.task02.entity.SportEquipment;
 import com.corporation.task02.entity.User;
 import com.corporation.task02.entity.criteria.Criteria;
@@ -21,31 +21,23 @@ public class Main {
 		
 		try {
 			rentUnitService.initializeShop();
-		
+	
 			Shop shop = Shop.getInstance();
 			Map<Integer, User> users = shop.getUsers();
-			
-			Printer.printEquipments();
-			Printer.printRentEquipments();
-			
 			User user = users.get(1);
+			
 			Criteria searchCriterias = new Criteria();
 			searchCriterias.add(SearchCriteria.CATEGORY, "SKI");
 			searchCriterias.add(SearchCriteria.PRICE, 15.0);
 			
 			List<SportEquipment> equipments = rentUnitService.find(searchCriterias);
-			if(equipments.isEmpty()) {
-				System.out.println("Such goods are not found");
-			} else {
+			if(! equipments.isEmpty()) {
 				rentUnitService.rent(user, equipments.get(0));
 			}
 			
-			Printer.printEquipments();
-			Printer.printRentEquipments();
-			
 			rentUnitService.returnRentUnit(user, equipments.get(0));
 			
-			Printer.printEquipments();
+			Printer.printAllEquipments();
 			Printer.printRentEquipments();
 			
 		} catch (IOException e) {

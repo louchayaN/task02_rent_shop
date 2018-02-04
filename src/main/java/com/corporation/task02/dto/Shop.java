@@ -1,7 +1,10 @@
-package com.corporation.task02.entity;
+package com.corporation.task02.dto;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.corporation.task02.entity.SportEquipment;
+import com.corporation.task02.entity.User;
 
 public class Shop {
 	
@@ -29,6 +32,5 @@ public class Shop {
 	public static Shop getInstance() {
 		return instance;
 	}
-
 
 }

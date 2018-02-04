@@ -2,19 +2,17 @@ package com.corporation.task02.main;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
-import com.corporation.task02.entity.Shop;
+import com.corporation.task02.dto.Shop;
 import com.corporation.task02.entity.SportEquipment;
 import com.corporation.task02.entity.User;
 
 public class Printer {
 	
-	public static void printEquipments() {
+	public static void printAllEquipments() {
 		
 		Shop shop = Shop.getInstance();		
-		Map<Integer, SportEquipment> goods = shop.getGoods();
-		Collection<SportEquipment> equipments = goods.values();
+		Collection<SportEquipment> equipments = shop.getGoods().values();
 		
 		System.out.println("SportEquipments:");
 		for(SportEquipment equipment: equipments) {
@@ -30,16 +28,16 @@ public class Printer {
 		Shop shop = Shop.getInstance();		
 		Collection<User> users = shop.getUsers().values();
 		
-		System.out.println("Users:");
+		System.out.println("RentEquipment:");
 		for(User user: users) {
-			List<SportEquipment> rentEquipments = user.getRentUnits().getRentUnits();
-			StringBuffer buffer = new StringBuffer("");
+			List<SportEquipment> rentEquipments = user.getRentUnits().getRentEquipments();
+			StringBuffer userRents= new StringBuffer("");
 			for (SportEquipment rentEquipment : rentEquipments) {
-				buffer.append(rentEquipment.getCategory()).append(" ").append(rentEquipment.getTitle()).append("\n");		
+				userRents.append(rentEquipment.getCategory()).append(" ").append(rentEquipment.getTitle()).append("\n");		
 			}				
 			System.out.printf(
-					"Name: %s, passport: %s. Rented units:%n%s%n", 
-					user.getName(), user.getPassport(), buffer);						
+					"name: %s, passport: %s, rented units:%n%s", 
+					user.getName(), user.getPassport(), userRents);						
 		}		
 	}
 	

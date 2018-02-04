@@ -1,4 +1,4 @@
-package com.corporation.task02.dao.reader;
+package com.corporation.task02.dao.rw;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ public class ResourceNameReader {
 		
 		String propertyFileName = "resources.properties";
 
-		InputStream stream = ResourceNameReader.class.getClassLoader().getResourceAsStream(propertyFileName);
+		InputStream stream = getClass().getClassLoader().getResourceAsStream(propertyFileName);
 		Properties resources = new Properties();
 		
 		try {
