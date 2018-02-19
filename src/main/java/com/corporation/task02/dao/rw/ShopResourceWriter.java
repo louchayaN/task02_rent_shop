@@ -16,7 +16,10 @@ import com.corporation.task02.entity.User;
 public class ShopResourceWriter {
 	
 	private static final ShopResourceWriter instance = new ShopResourceWriter();
-
+	
+	private ShopResourceWriter() {		
+	}
+	
 	public void updateGoodsResouce(String goodsResourceName) throws IOException {	
 	
 		Shop shop = Shop.getInstance();
